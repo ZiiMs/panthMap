@@ -1,4 +1,4 @@
-import ActiveWindow from '@paymoapp/active-window';
+// import ActiveWindow from '@paymoapp/active-window';
 import { app, BrowserWindow, globalShortcut, ipcMain, Menu, nativeImage, screen, Tray } from 'electron';
 import started from 'electron-squirrel-startup';
 import path from 'node:path';
@@ -10,7 +10,7 @@ import createButtonWindow from './settings/settingsButton';
 if (started) {
   app.quit();
 }
-ActiveWindow.initialize()
+// ActiveWindow.initialize()
 
 
 
@@ -29,6 +29,7 @@ const createMapWindow = (config: Config) => {
     height: config.height,
     x: config.x,
     y: config.y,
+    icon: path.join(__dirname, '/assets/iconApp256.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
@@ -129,16 +130,16 @@ app.on('ready', () => {
   });
 
 
-  ActiveWindow.subscribe((winInfo) => {
-    // console.log(winInfo.title)
-    if (winInfo.application === 'Pantheon.exe' || winInfo.title === 'Button!PMAP') {
-      buttonWindow.show();
-      // console.log('show button window')
-    } else {
-      buttonWindow.hide();
-      // console.log('hide button window')
-    }
-  })
+  // ActiveWindow.subscribe((winInfo) => {
+  //   // console.log(winInfo.title)
+  //   if (winInfo.application === 'Pantheon.exe' || winInfo.title === 'Button!PMAP') {
+  //     buttonWindow.show();
+  //     // console.log('show button window')
+  //   } else {
+  //     buttonWindow.hide();
+  //     // console.log('hide button window')
+  //   }
+  // })
 
 
 });

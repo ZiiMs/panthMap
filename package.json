@@ -20,6 +20,7 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.6.1",
     "@electron-forge/plugin-fuses": "^7.6.1",
     "@electron-forge/plugin-vite": "^7.6.1",
+    "@electron-forge/publisher-github": "^7.6.1",
     "@electron/fuses": "^1.8.0",
     "@types/electron-squirrel-startup": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
@@ -40,7 +41,6 @@
   "license": "MIT",
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
   "dependencies": {
-    "@paymoapp/active-window": "^2.1.2",
     "@radix-ui/react-hover-card": "^1.1.5",
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-slider": "^1.2.2",

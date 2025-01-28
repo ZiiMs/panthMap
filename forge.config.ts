@@ -6,14 +6,29 @@ import { FusesPlugin } from '@electron-forge/plugin-fuses';
 import { VitePlugin } from '@electron-forge/plugin-vite';
 import type { ForgeConfig } from '@electron-forge/shared-types';
 import { FuseV1Options, FuseVersion } from '@electron/fuses';
-
+import path from 'path';
 const config: ForgeConfig = {
   packagerConfig: {
     asar: true,
-    icon: './public/assets/iconApp256.png',
+    icon: path.join(__dirname, '/public/assets/iconApp2.ico'),
   },
   rebuildConfig: {},
-  makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'ZiiM',
+          name: 'panthMap',
+        },
+      },
+    },
+  ],
+  makers: [new MakerSquirrel({
+    setupIcon: './assets/iconApp256.ico',
+    iconUrl: 'https://raw.githubusercontent.com/ZiiM/panthMap/main/public/assets/iconApp256.ico',
+    setupExe: 'PanthMap-Setup.exe',
+  }), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
   plugins: [
     new VitePlugin({
       // `build` can specify multiple entry builds, which can be Main process, Preload scripts, Worker process, etc.

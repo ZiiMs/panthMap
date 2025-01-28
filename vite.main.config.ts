@@ -7,7 +7,8 @@ export default defineConfig({
       output: {
         interop: 'auto',
       },
-      external: ['@paymoapp/active-window'],
+      // external: ['@paymoapp/active-window', // HERE you define that you won't like this lib to get bundled
+      //   ...builtinModules.flatMap(p => [p, `node:${p}`])],
     },
   },
 });
