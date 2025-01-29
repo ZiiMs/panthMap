@@ -18,15 +18,16 @@ const config: ForgeConfig = {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'ZiiM',
+          owner: 'ZiiMs',
           name: 'panthMap',
         },
+        draft: false,
       },
+      
     },
   ],
   makers: [new MakerSquirrel({
-    setupIcon: './assets/iconApp256.ico',
-    iconUrl: 'https://raw.githubusercontent.com/ZiiM/panthMap/main/public/assets/iconApp256.ico',
+    iconUrl: 'https://raw.githubusercontent.com/ZiiMs/panthMap/refs/heads/master/public/assets/iconApp256.ico',
     setupExe: 'PanthMap-Setup.exe',
   }), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
   plugins: [
@@ -47,6 +48,10 @@ const config: ForgeConfig = {
         },
       ],
       renderer: [
+        // {
+        //   name: 'main_window',
+        //   config: 'vite.renderer.config.ts',
+        // },
         {
           name: 'button_window',
           config: 'vite.button.config.ts',

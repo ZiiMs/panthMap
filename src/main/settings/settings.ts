@@ -10,6 +10,7 @@ const createSettingsWindow = () => {
     height: 306,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      webSecurity: false,
     },
     skipTaskbar: true,
     frame: false,
@@ -20,8 +21,9 @@ const createSettingsWindow = () => {
 
 
   if (SETTINGS_WINDOW_VITE_DEV_SERVER_URL) {
-    settingsWindow.loadURL(SETTINGS_WINDOW_VITE_DEV_SERVER_URL);
+    settingsWindow.loadURL(`${SETTINGS_WINDOW_VITE_DEV_SERVER_URL}/index.html`);
   } else {
+    console.log('loading file', SETTINGS_WINDOW_VITE_NAME)
     settingsWindow.loadFile(path.join(__dirname, `../renderer/${SETTINGS_WINDOW_VITE_NAME}/index.html`));
   }
   settingsWindow.hide();

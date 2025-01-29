@@ -11,4 +11,8 @@ export default defineConfig({
     },
   },
   root: path.join(__dirname, "src", "renderer", "settings"),
+  build: {
+    outDir: path.join(__dirname, ".vite", "renderer", "settings_window"),
+    emptyOutDir: true
+  }
 });
